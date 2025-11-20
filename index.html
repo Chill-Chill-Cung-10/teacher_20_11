@@ -7,6 +7,12 @@
     <title>Chúc mừng Ngày Nhà giáo Việt Nam 20/11</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Pacifico&display=swap"
         rel="stylesheet">
+    
+    <!-- Background Music -->
+    <audio id="backgroundMusic" autoplay loop>
+        <source src="nhac.mp3" type="audio/mpeg">
+    </audio>
+
     <style>
         * {
             margin: 0;
@@ -319,7 +325,7 @@
     <div id="intro" class="intro">
         <!-- <h2 class="intro-s">Chạm nhẹ vào bông hoa</h2> -->
         <img src="/4.jpg" class="intro-img" />
-        <h2 class="intro-text">💐 Chạm nhẹ vào bông hoa 💐</h2>
+        <h2 class="intro-text">💐 Chạm nhẹ vào bông hoa để mở ra những sự ngọt ngào 💐</h2>
     </div>
 
     <div id="mainCard" style="display: none;">
@@ -328,7 +334,7 @@
                 <h1>
                     <!-- Sửa lời chúc đầu -->
                     <span class="emoji">🌺</span>
-                    Chúc mừng Ngày Nhà giáo Việt Nam 20/11
+                    Chúc mừng Ngày Nhà giáo Việt Nam 20/11 ❤️❤️
                     <span class="emoji">🌺</span></br>
                 </h1>
             </div>
@@ -344,13 +350,27 @@
         </div>
 
         <div class="footer">
-            <div>Thiết kế đầy yêu thương dành tặng Thầy Cô</div>
+            <div>Chúng em, học sinh lớp 9B, những quỷ lùn cute cụa cô 🥰🥰🥰</div>
             <!-- Code này phục vụ cộng đồng không bán mong mọi người không lợi dụng để kinh doanh -->
         </div>
     </div>
 
     <script>
+        // Xử lý phát nhạc nền
+        const bgMusic = document.getElementById("backgroundMusic");
+        let musicStarted = false;
+
+        function startMusic() {
+            if (!musicStarted) {
+                bgMusic.play().catch(e => console.log("Không thể phát nhạc:", e));
+                musicStarted = true;
+            }
+        }
+
         document.getElementById("intro").addEventListener("click", () => {
+            // Phát nhạc ngay khi click vào intro
+            startMusic();
+            
             document.getElementById("intro").style.display = "none";
             document.getElementById("mainCard").style.display = "block";
 
@@ -382,10 +402,12 @@
 
         /* Sử Lời nhắn ở đây */
         const messages = [
+            "Kính gửi, cô giáo Thương yêu dấu ❤️❤️❤️",
             "Cảm ơn Cô đã mang đến cho chúng em tri thức, niềm tin và ước mơ 🌻",
             "Mỗi bài học, mỗi lời dạy của Cô là hành trang quý giá suốt đời ✨",
             "Kính chúc Cô luôn mạnh khỏe, hạnh phúc và thành công! 💐",
-            "Ngày 20/11 – xin gửi ngàn lời tri ân đến những người cô thân yêu ❤️"
+            "Ngày 20/11 – xin gửi ngàn lời tri ân đến những người cô thân yêu ❤️",
+            "From 9B with love ❤️❤️❤️"
         ];
         let msgIndex = 0;
         let charIndex = 0;
